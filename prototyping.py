@@ -60,7 +60,7 @@ class smallModelForEnsemble(nn.Module):
 
         flattened = torch.flatten(conv7.permute(0, 2, 3, 1), 1)
         return flattened
-
+        
 
 class EnsembleModel(nn.Module):
     def __init__(self, model, n, inp):
