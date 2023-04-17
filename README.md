@@ -22,6 +22,17 @@ Overall goal was to achieve AUC ROC >= 80%. Models has been implemented in All m
 |ViT (patch merger)|0.79|
 
 ## Task 2
+The task is quite similar to Task 1. We have a binary classification problem, with 139328 images of size 125x125x3. Images are split equally into 2 classes (Quark and Gluon). Simillarly the dataset is very sparse. An additional problem, is the size required to store the data : given the images are much larger, much more RAM and VRAM is required. This has been solved by unpacking the initial .parquet files, and saving the images from them to sparse matrices. This created a large folder structure (with 2 subfolders) with ~139k images, that was zipped and saved on google drive. To visualize problem better, image below represent a few random images from the dataset : 
+![images/task1.png](images/task2.png)
+Multiple CNN architectures has been trained for that task, and code for them can be found [here](Task2_pytorch (4).ipynb)
+
+
+| name of the model  |  best AUC ROC on validaton score  |
+|---|---|
+| Basic CNN | 0.79  |
+|Resnet34 (from scratch,    17.447 mln parameters)|0.8104|
+|ConvNext| 0.78|
+
 
 # References 
 - https://paperswithcode.com/sota/image-classification-on-cifar-10
